@@ -1,0 +1,173 @@
+<head>
+  <title>Foundations</title>
+  <script src="plugins/main.js"></script>
+</head>
+
+<body onload="onLoad('Aparna Krishnan')">
+
+<div id="assignmentHeader"></div>
+
+<p>
+<b> Version 2</b><br/>
+The goal of this assignment is to sharpen your math and programming skills
+needed for this class.  If you meet the prerequisites, you should find these
+problems relatively innocuous.  Some of these problems will occur again
+as subproblems of later homeworks, so make sure you know how to do them.
+</p>
+
+<ol class="problem">
+<li class="writeup">
+This icon means a written answer is expected in your writeup.pdf
+</li>
+<li class="code">
+This icon means a coded solution is expected in your submission.py
+</li>
+</ol>
+
+<!------------------------------------------------------------>
+<div class="problemTitle">Problem 1: Optimization and probability</div>
+
+<p>
+In this class, we will cast a lot of AI problems as optimization problems, that is, finding the best
+solution in a rigorous mathematical sense.
+At the same time, we must be adroit at coping with uncertainty in the world,
+and for that, we appeal to tools from probability.
+</p>
+
+<ol class="problem">
+
+<li class="writeup">
+Let $b_1, \dots, b_n$ be real numbers representing positions on a number line.
+Let $w_1, \dots, w_n$ be positive numbers representing the importance of these positions.
+Define the quadratic function: $f(x) = \frac{1}{2} \sum_{i=1}^n w_i (x - b_i)^2$.
+What value $x$ minimizes $f(x)$?
+You can think about this problem as trying to find the point $x$ that's not too far
+away from the points $b_i$'s.
+Over time, hopefully you'll appreciate how nice quadratic functions are to minimize.
+</li>
+
+<li class="writeup">
+In this class, there will be a lot of sums and maxes.
+Let's see what happens if we switch the order.
+Let $f(x) = \max_{a \in \{1,-1\}} \sum_{j=1}^d a x_j$
+and $g(x) = \sum_{j=1}^d \max_{a \in \{1,-1\}} a x_j$,
+where $x = (x_1, \dots, x_d) \in \mathbb{R}^d$ is a real vector.
+What is the relationship (comparison) between $f(x)$ and $g(x)$?
+</li>
+
+<li class="writeup">
+Suppose you start a counter at zero.
+You repeat the following $n$ times:
+Roll a fair six-sided dice. If the number of dots is at least $4$,
+then add it to the counter; otherwise, do nothing.
+What is the expected value of the final counter?
+Do the dice rolls have to be independent for the expected value to be calculated? Explain.
+</li>
+
+<li class="writeup">
+Suppose the probability of a coin turning up heads is $0 &lt; p &lt; 1$,
+and that we flip it 5 times and get $\{ \text{H}, \text{T}, \text{T}, \text{H}, \text{H} \}$.
+We know the probability (likelihood) of obtaining this
+sequence is $L(p) = p (1-p) (1-p) p p = p^3 (1-p)^2$.
+Now let's go backwards and ask the question: what is the value of $p$ that maximizes $L(p)$?
+Hint: consider taking the derivative of $\log L(p)$.
+</li>
+
+<li class="writeup">
+Let's practice taking derivatives of vector-valued functions.
+For $\mathbf w \in \mathbb R^d$ and constants $a_i, b_j \in \mathbb R^d$ and $\lambda \in \mathbb R$, define
+$$f(\mathbf w) = \sum_{i=1}^n \sum_{j=1}^n (a_i^\top \mathbf w - b_j^\top \mathbf w)^2 + \lambda \|\mathbf w\|_2^2.$$
+Compute the gradient $\nabla f(\mathbf w)$.
+</li>
+
+</ol>
+
+<!------------------------------------------------------------>
+<div class="problemTitle">Problem 2: Complexity</div>
+
+<p>
+When designing algorithms, it's useful to be able to do quick back of the
+envelope calculations to see how much time or space an algorithm needs.
+Hopefully, you'll start to get more intuition for this by being exposed
+to more types of problems.
+</p>
+
+<ol class="problem">
+
+<li class="writeup">
+Suppose we have a sentence consisting of $n$ words and want to label each word with
+one of following four tags: noun, verb, adjective, or other.
+How many possible tag sequences are there?
+</li>
+
+<li class="writeup">
+Suppose we have an image of a human face consisting of $n \times n$ pixels.
+In our simplified setting, a face consists of two eyes and one mouth,
+each represented as an arbitrary axis-aligned rectangle.  As we'd like
+to handle Picasso portraits too, there are no constraints on the location or
+size of the rectangles.
+How many possible faces (choice of its component rectangles) are there?
+In general, we only care about asymptotic complexity,
+so give your answer in the form of $O(n^c)$ or $O(c^n)$ for some integer $c$.
+</li>
+
+<li class="writeup">
+Suppose we have $n$ cities on the number line: $1, 2, \dots, n$.
+Define a function $c(i, j)$ which returns the cost of going from city $i$
+to city $j$, and assume it takes constant time to compute.
+We want to travel from $1$ to $n$ via a set of intermediate cities, but only
+moving forwards.
+We can compute the minimum cost of doing this by defining
+the following relation: $f(j) = \min_{1 &le; i &lt; j} [c(i, j) + f(i)]$.
+How much time (just give the big-O) does it take to compute $f(n)$ in the most 
+efficient way?
+</li>
+
+<li class="writeup">
+Consider the vector-valued function $f(\mathbf w)$ from Problem 1e.
+Devise a strategy that first does preprocessing in $O(n d^2)$ time,
+and then takes $O(d^2)$ time instead to compute $f(\mathbf w)$ for each given
+vector $\mathbf w$.
+</li>
+
+</ol>
+
+<!------------------------------------------------------------>
+<div class="problemTitle">Problem 3: Programming</div> 
+
+<ol class="problem">
+
+<p>
+<li class="code"> 
+In this problem, you will implement a bunch of short functions.  The main
+purpose of this exercise is to familiarize yourself with Python,
+but as a bonus, the functions that you will implement will come in handy in
+subsequent homeworks.
+</li>
+</p>
+
+<p>
+If you're new to Python, the following provide pointers to various
+tutorials and examples for the language:
+<ul>
+  <li><a href="http://wiki.python.org/moin/BeginnersGuide/Programmers">Python for Programmers</a></li>
+  <li><a href="http://wiki.python.org/moin/SimplePrograms">Example programs of increasing complexity</a></li>
+</ul>
+</p>
+
+<p>
+You should modify the code in <a href="submission.py"><code>submission.py</code></a>,
+between <pre># BEGIN_YOUR_CODE</pre> and <pre># END_YOUR_CODE</pre> but
+you can add other helper functions if you choose (for this homework, you
+shouldn't need to do this).
+</p>
+
+<p>
+To test your code, we have provided some sample test cases.  To run them, type:
+<pre>python grader.py</pre>
+Note that these test cases are very basic and do not stress your code with
+large inputs or tricky corner cases.  You should add some of your own test
+cases as well, because you will be graded on more difficult test cases.
+</p>
+</ol>
+</body>
